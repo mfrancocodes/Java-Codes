@@ -1,0 +1,82 @@
+public class Flower {
+	
+	private String name;
+	private int numPetals;
+	private double price;
+
+	public Flower()
+	{
+		setName("Rose");
+		setNumPetals(10);
+		setPrice(4.99);
+	}
+	
+	public Flower(String name, int numPetals, double price)
+	{
+		setName(name);
+		setNumPetals(numPetals);
+		setPrice(price);
+	}
+	
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	public void setNumPetals(int numPetals)
+	{
+		this.numPetals = numPetals;
+	}
+	public void setPrice(double price)
+	{
+		this.price = price;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	public int getNumPetals()
+	{
+		return numPetals;
+	}
+	public double getPrice()
+	{
+		return price;
+	}
+	
+	
+	public String toString()
+	{
+		return String.format("\nFlower Name: %s, Number of Petals: %d, Price: $%.2f\n", name, numPetals, price);
+	}
+ 
+
+}
+
+
+
+
+public class FlowerTest {
+
+	public static void main(String[] args) {
+		
+		Flower[] flowers;
+		final int ARRAY_SIZE = 5;
+		
+		flowers = new Flower[ARRAY_SIZE];
+		
+		flowers[0] = new Flower("Rose", 3, 6.99);
+		flowers[1] = new Flower("Peony", 5, 2.99);
+		flowers[2] = new Flower("Tulip", 8, 5.99);
+		flowers[3] = new Flower("Daisy", 15, 3.99);
+		flowers[4] = new Flower("Venus Fly Trap", 12, 8.99);
+		
+		for(int count = 0; count < flowers.length; count++)
+		{
+			System.out.printf("%s", flowers[count]);
+		}
+		
+
+	}
+
+}
