@@ -1,0 +1,55 @@
+public class Pair<A,B> {
+	
+	A first;
+	B second;
+	
+	public Pair(A a, B b)
+	{
+		first = a;
+		second = b;
+	}
+	public A getFirst() {return first;}
+	public B getSecond() {return second;}
+
+}
+
+
+public class TestDriver {
+
+	public static void main(String[] args) {
+		
+		/* 1) Declare variables and corresponding inputs 
+		 * 2) Call the Pair class to populate First (A) and Second (B) from Pair<A,B>
+		 */
+        
+		Pair<String,String> team = new Pair<>("New York Mets", "National League East");
+		
+		System.out.println("\nTeam name: " + team.getFirst());
+		System.out.println("Team's division: " + team.getSecond());
+		
+		
+        Pair<Integer,Double> standings = new Pair<>(1, 6.5);
+		
+		System.out.println("\nTeam's place in standings: " + standings.getFirst());
+		System.out.println("Games ahead in first place: " + standings.getSecond());
+		
+		
+        Pair<Double,Double> teamTotals = new Pair<>(.985, 8.12);
+		
+		System.out.println("\nTeam's fielding percentage: " + teamTotals.getFirst() + "%");
+		System.out.println("Pitching staff's strikeouts per 9 innings: " + teamTotals.getSecond() + " K/9");
+		
+		
+		Pair<String,Double> player = new Pair<>("Matt Harvey", 2.60);
+		
+		System.out.println("\nPitcher's Name: " + player.getFirst());
+		System.out.println("Pitcher's ERA: " + player.getSecond());
+		
+		
+		Pair<Double,Integer> hitter = new Pair<>(.293, 28);
+		
+		System.out.println("\nYoenis Cespedes' average: " + hitter.getFirst() + " avg.");
+		System.out.println("Hitter's homerun count: " + hitter.getSecond() + " homeruns");
+	}
+
+}
