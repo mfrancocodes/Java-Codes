@@ -1,0 +1,77 @@
+import net.datastructures.*;
+import dsaj.arrays.GameEntry;
+
+
+public class TestDriver {
+
+	public static void main(String[] args) {
+		
+		//Declare and populate a SinglyLinkedList with 10 player entries
+		
+		SinglyLinkedList<GameEntry> list = new SinglyLinkedList<GameEntry>();
+		
+		GameEntry player1 = new GameEntry("ABC", 10);
+		GameEntry player2 = new GameEntry("DEF", 20);
+		GameEntry player3 = new GameEntry("GHI", 30);
+		GameEntry player4 = new GameEntry("JKL", 40);
+		GameEntry player5 = new GameEntry("MNO", 50);
+		GameEntry player6 = new GameEntry("PQR", 60);
+		GameEntry player7 = new GameEntry("STU", 70);
+		GameEntry player8 = new GameEntry("VWX", 80);
+		GameEntry player9 = new GameEntry("Y", 90);
+		GameEntry player10 = new GameEntry("Z", 100);
+		
+		list.addFirst(player1);
+		list.addFirst(player2);
+		list.addFirst(player3);
+		list.addFirst(player4);
+		list.addFirst(player5);
+		list.addFirst(player6);
+		list.addFirst(player7);
+		list.addFirst(player8);
+		list.addFirst(player9);
+		list.addFirst(player10);
+		
+		
+		//Print output of SinglyLinkedList
+		
+		System.out.println("\nLinked List: " + list);
+		
+		
+		//Declare a LinkedStack and push entries onto the stack
+		
+		LinkedStack<GameEntry> linkedStack = new LinkedStack<GameEntry>();
+		
+		int size = list.size();
+		
+		for (int i = 0; i < size; i++)
+		{
+			linkedStack.push(list.removeFirst());
+		}
+		
+		//Print out LinkedStack 
+		
+		System.out.println("\nStack: " + linkedStack);
+		
+		
+		
+		//Call the reverse method to display the reverse order
+		
+		System.out.println("\nReverse List: " + reverse(list, linkedStack));
+
+	}
+
+	//Create a reverse method to pop objects from the stack back into the list, but in reverse order
+	
+	public static SinglyLinkedList<GameEntry> reverse(SinglyLinkedList<GameEntry>list, LinkedStack<GameEntry>stack)
+	{
+		int size = stack.size();
+		
+		for (int i = 0; i < size; i++)
+		{
+			list.addLast(stack.pop());
+		}
+		return list;
+	}
+	
+}
