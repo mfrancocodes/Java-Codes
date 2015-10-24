@@ -1,0 +1,96 @@
+public class GameEntry {
+
+	//Declare, and instantiate a name and score
+	
+	private String name; 
+	private int score;
+	
+	public GameEntry(String n, int s) 
+	{ 
+		name = n; 
+		score = s; 
+	}
+	
+	public String getName() { return name; } 
+	public int getScore() { return score; }
+	
+	//Return values entered in the following format
+	
+	public String toString() 
+	{ 
+		return "(" + name + "," + score + ")"; 
+	}
+}
+
+
+
+import net.datastructures.*;
+
+public class TestDriver {
+
+public static void main(String[] args) {
+		
+	//Declare Linked List GameEntry lists, and populate with objects
+
+	SinglyLinkedList<GameEntry> list1 = new SinglyLinkedList<GameEntry>(); 
+    SinglyLinkedList<GameEntry> list2 = new SinglyLinkedList<GameEntry>();
+		
+    GameEntry player1 = new GameEntry("Him", 2500);  
+    GameEntry player2 = new GameEntry("Her", 4000);
+    GameEntry player3 = new GameEntry("Them", 6500);
+    GameEntry player4 = new GameEntry("Us", 7600);
+    GameEntry player5 = new GameEntry("We", 8000);
+    GameEntry player6 = new GameEntry("They", 9500);
+		     
+    //Move objects to the end of the list
+		
+		 list1.addLast(player1);
+		 list1.addLast(player2);
+		 list1.addLast(player3);
+		 
+		 list2.addLast(player4);
+		 list2.addLast(player5);
+		 list2.addLast(player6);
+		 
+		 
+		 //Print first and second lists. Concatenate the lists to comprise the third list.
+		 
+		 System.out.println("\nFirst list: " + list1); 
+		 
+		 System.out.println("\nSecond List: " + list2); 
+		    
+		 System.out.println("\nConcatenated List: " + concatenate(list1, list2));
+		 
+    }
+		
+
+         //Create LinkedList method to concatenate into the third list
+
+        public static SinglyLinkedList<GameEntry> concatenate (SinglyLinkedList<GameEntry>first,
+		        SinglyLinkedList<GameEntry>second) 
+		{ 
+        	
+        	//Declare and instantiate a third list
+        	
+			SinglyLinkedList<GameEntry> list3 = new SinglyLinkedList<GameEntry>();
+			
+			
+			//  Iterate through both list1 and list2 and add their contents to list3, then return list3
+			
+			int num = first.size();
+			
+			for (int x = 0; x < num; x++)
+			{
+				list3.addLast(first.removeFirst()); 
+			}
+			for (int x = 0; x < num; x++)
+		    {
+		        list3.addLast(second.removeFirst()); 
+		    }
+		      
+			return list3; 
+		}
+        
+}
+
+
